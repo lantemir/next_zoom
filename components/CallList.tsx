@@ -9,7 +9,7 @@ import MeetingCard from './MeetingCard';
 import { useRouter } from 'next/navigation'
 import Loader from './Loader';
 import { useToast } from '@/hooks/use-toast';
-import { title } from 'process';
+
 
 const CallList = ({type}: {type: 'ended' | 'upcoming' | 'recordings'}) => {
 
@@ -65,7 +65,7 @@ const CallList = ({type}: {type: 'ended' | 'upcoming' | 'recordings'}) => {
             }
 
             catch (error) {
-                toast({ title: "Try again latter" })
+                toast({ title:  `Try again latter ${error}` })
             }
         }
 
