@@ -27,9 +27,7 @@ const MeetingTypeList = () => {
   const { toast }  = useToast();
 
   const createMeeting = async ()=> {
-    if(!client || !user) return;
-
-     console.log("process@@@@" , `${process.env.NEXT_PUBLIC_BASE_URL}`)
+    if(!client || !user) return;   
 
     try {
       if(!values.dateTime){
@@ -73,29 +71,29 @@ const MeetingTypeList = () => {
     <section className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
        <HomeCard
         img="/icons/add-meeting.svg"
-        title="New Meeting"
-        description="Start an instance meeting"
+        title="Новая встреча"
+        description="Начать встречу"
         handleClick={()=>setMeetingState('isInstantMeeting')}
         className="bg-orange-1"
        />
        <HomeCard
          img="/icons/schedule.svg"
-         title="Schedule Meeting"
-         description="Plan your meeting"
+         title="Запланировать встречу"
+         description="Планируйте свою встречу"
          handleClick={()=>setMeetingState('isScheduleMeeting')}
          className="bg-blue-1"
        />
        <HomeCard
         img="/icons/recordings.svg"
-        title="View Recordings"
-        description="Check out your recordings"
+        title="Просмотр записей"
+        description="Просмотрите свои записи"
         handleClick={()=>router.push('/recordings')}
         className="bg-purple-600"
        />
        <HomeCard
          img="/icons/join-meeting.svg"
-         title="Join Meeting"
-         description="via invitation link"
+         title="Присоединиться к собранию"
+         description="по приглашающей ссылке"
          handleClick={()=> setMeetingState('isJoiningMeeting')}
          className="bg-yellow-500"
        />
@@ -104,11 +102,11 @@ const MeetingTypeList = () => {
         <MeetingModal 
         isOpen={meetingState === 'isScheduleMeeting'}
         onClose= {()=> setMeetingState(undefined)}
-        title="Create Meeting"       
+        title="Создать собрание"       
         handleClick={createMeeting} 
         >
             <div className="flex flex-col gap-2.5">
-              <label className="text-base text-normal leading-[22px] text-sky-2">Add description</label>
+              <label className="text-base text-normal leading-[22px] text-sky-2">Добавить описание</label>
             
             <Textarea className="border-none bg-dark-3 focus-visible:ring-0 focus-visible:ring-offset-0" 
               onChange={(e)=>{
@@ -117,7 +115,7 @@ const MeetingTypeList = () => {
             />
             </div>
             <div className="flex w-full flex-col gap-2.5">
-             <label className="text-base text-normal leading-[22px] text-sky-2">Select date and time</label>
+             <label className="text-base text-normal leading-[22px] text-sky-2">Выберите дату и время</label>
              <ReactDatePicker 
               selected={values.dateTime}
               onChange={(date) => setValues({...values, dateTime: date!})}
@@ -133,7 +131,7 @@ const MeetingTypeList = () => {
       ) : (<MeetingModal
         isOpen={meetingState === 'isScheduleMeeting'}
         onClose= {()=> setMeetingState(undefined)}
-        title="Meeting Created"
+        title="Собрание добавлено"
         className="text-center"      
         handleClick={()=> {
           navigator.clipboard.writeText(meetingLink);
@@ -147,18 +145,18 @@ const MeetingTypeList = () => {
        <MeetingModal
         isOpen={meetingState === 'isInstantMeeting'}
         onClose= {()=> setMeetingState(undefined)}
-        title="Start an Instant Meeting"
+        title="Начать встречу"
         className="text-center"
-        buttonText="Start meeting"
+        buttonText="Начать встречу"
         handleClick={createMeeting} 
       />
 
       <MeetingModal
         isOpen={meetingState === 'isJoiningMeeting'}
         onClose={() => setMeetingState(undefined)}
-        title="Type the link here"
+        title="Введите ссылку здесь"
         className="text-center"
-        buttonText="Joing meeting"
+        buttonText="Присоединиться к собранию"
         handleClick={()=> router.push(values.link)}
       >
         <Input

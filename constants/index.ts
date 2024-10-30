@@ -1,26 +1,26 @@
 export const sidebarLinks = [
     {
-        label: 'Home',
+        label: 'Главная',
         route: '/',
         imgUrl: '/icons/Home.svg',        
     },
     {
-        label: 'Upcoming',
+        label: 'Предстоящие',
         route: '/upcoming',
         imgUrl: '/icons/upcoming.svg',        
     },
     {
-        label: 'Previous',
+        label: 'Предыдущие',
         route: '/previous',
         imgUrl: '/icons/previous.svg',        
     },
     {
-        label: 'Recordings',
+        label: 'Записи',
         route: '/recordings',
         imgUrl: '/icons/Video.svg',        
     },
     {
-        label: 'Personal Room',
+        label: 'Личный кабинет',
         route: '/personal-room',
         imgUrl: '/icons/add-personal.svg',        
     },
